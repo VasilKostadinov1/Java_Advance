@@ -11,14 +11,14 @@ public class Selling_02 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        readMatrix(scanner, Integer.parseInt(scanner.nextLine()));
+        readMatrix(scanner, Integer.parseInt(scanner.nextLine()));  // by Manekena
         findIndexes('S');
         int money = 0;
 
         while (money < 50 && isInBounds()) {
 
             String input = scanner.nextLine(); // up, down, left or right
-            //setPosition('-');
+            setPosition('-');
             matrix[indexes[0]][indexes[1]]='-';
 
             if ("up".equals(input)) {
