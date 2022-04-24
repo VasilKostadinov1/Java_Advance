@@ -73,9 +73,9 @@ public class BakeryShop_01_Feb22_Csharp {
         } else {
             DecimalFormat df = new DecimalFormat("0.##");
             System.out.printf("Flour left: %s%n", stackFlour.stream().map(df::format).collect(Collectors.joining(", ")));
-            for (Double w : queueWater) {
-                System.out.printf("Water left: %s%n",w);
-            }
+//            for (Double w : queueWater) {
+//                System.out.printf("Water left: %s%n",w);
+//            }
         }
 
 
