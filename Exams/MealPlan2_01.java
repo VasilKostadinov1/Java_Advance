@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class MealPlan2_01 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);   // 2nd output is working !!!
 
         ArrayDeque<String> vegetablesStack = new ArrayDeque<>();
         Arrays.stream(scanner.nextLine().split("\\s+"))
@@ -33,7 +33,8 @@ public class MealPlan2_01 {
                 countMeals++;
             }
         }
-        if (countMeals == 0) {
+
+        if (vegetablesStack.isEmpty()) {
             System.out.printf("John had %d meals.%n", countMeals);
 
             String collect = saladsQueues.stream().map(String::valueOf).collect(Collectors.joining(", "));
