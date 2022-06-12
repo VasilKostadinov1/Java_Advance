@@ -1,6 +1,9 @@
 package EXAMs;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class BeaverAtWork_CSharp_20Feb22 {
     public static void main(String[] args) {
@@ -16,6 +19,7 @@ public class BeaverAtWork_CSharp_20Feb22 {
         int beeCol = 0;
         int fish = 0;
         int wood = 0;
+        List<Character> charsForPrint = new ArrayList<>();
         for (int i = 0; i < size; i++) {   // find where is the Bee
             for (int j = 0; j < size; j++) {
                 if (territory[i][j] == 'B') {
@@ -26,6 +30,7 @@ public class BeaverAtWork_CSharp_20Feb22 {
                     fish++;
                 }
                 if (territory[i][j] >= 97 && territory[i][j] <= 122) {
+                    charsForPrint.add(territory[i][j]);
                     wood++;
                 }
             }
@@ -102,13 +107,13 @@ public class BeaverAtWork_CSharp_20Feb22 {
                 break;
             }
         }
-        //The bee needs at least 5 pollinated flowers.
+
         if (isWoodZero) {
-            System.out.printf("The Beaver successfully collect %d wood branches: {branch1}, {branch2}, {branch3}(…).%n", wood);
+            System.out.printf("The Beaver successfully collect %d wood branches: %s%n",
+                    charsForPrint.size(),charsForPrint.stream().map(String::valueOf).collect(Collectors.joining(", ")));
         } else {
             System.out.printf("The Beaver failed to collect every wood branch. There are %d branches left.%n", wood);
         }
-
         printMatrix(territory);
 
     }
